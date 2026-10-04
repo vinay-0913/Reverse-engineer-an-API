@@ -1,0 +1,30 @@
+{
+  "name": "instahyre-reverse-api",
+  "version": "1.0.0",
+  "description": "Reverse-engineered API wrapper for Instahyre's publicly accessible job search endpoints",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "jest --runInBand --forceExit"
+  },
+  "keywords": [
+    "instahyre",
+    "api",
+    "reverse-engineering",
+    "job-search",
+    "express"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.7.0",
+    "express": "^4.21.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.4"
+  }
+}
