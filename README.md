@@ -259,15 +259,40 @@ npm start
 
 ## Testing
 
+### Jest test suite
+
 ```bash
 npm test
 ```
 
-The test suite includes:
+Runs 12 tests covering integration, validation, and mocked failure scenarios.
 
-- **Integration tests** — hit the real Instahyre endpoint through our API
-- **Validation tests** — verify input validation (limit, offset, ID)
-- **Mocked failure tests** — simulate upstream 500 and timeout scenarios
+### Standalone test script
+
+```bash
+# Option 1: Auto-start server and run tests
+npm run test:script
+
+# Option 2: Start server separately, then run the script
+npm start                          # terminal 1
+node tests/test-script.js          # terminal 2
+```
+
+Runs 13 end-to-end test cases against a live server with colored pass/fail output:
+
+1. **Health check** — `GET /health`
+2. **Full-time job search** — `GET /api/jobs?skills=Python&job_type=1&limit=5`
+3. **Internship search** — `GET /api/jobs?skills=Python&job_type=2&limit=5`
+4. **Pagination** — `GET /api/jobs?skills=Software+Engineer&job_type=1&limit=5&offset=5`
+5. **Single job by ID** — `GET /api/jobs/:id` (dynamically discovered)
+6. **404 not found** — `GET /api/jobs/999999999`
+7. **Validation: limit too high** — `GET /api/jobs?limit=999`
+8. **Validation: negative limit** — `GET /api/jobs?limit=-5`
+9. **Validation: non-numeric limit** — `GET /api/jobs?limit=abc`
+10. **Validation: negative offset** — `GET /api/jobs?offset=-1`
+11. **Validation: non-integer ID** — `GET /api/jobs/abc`
+12. **Default parameters** — `GET /api/jobs` (no params)
+13. **Response shape** — verifies internal fields are excluded
 
 ---
 
