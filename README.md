@@ -2,8 +2,6 @@
 
 A production-quality **Node.js + Express.js** API wrapper that reverse-engineers [Instahyre's](https://www.instahyre.com) publicly accessible job-search JSON endpoints and exposes a clean, documented REST API.
 
-> **Razorpay Forward-Deployed Engineer Assignment** — _"Choose a website that does not offer a public API and build a set of APIs for it."_
-
 ---
 
 ## Table of Contents
